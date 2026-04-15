@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Momi Repairing Works | Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="services">
+  <header class="site-navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand">
+        <img src="images/ChatGPT Image.png" alt="Momi Repairing Works logo" class="navbar-brand-logo">
+        <span>MRW</span>
+      </a>
+      <button class="navbar-toggle" id="navbar-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-navbar-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="navbar-menu" id="site-navbar-menu">
+        <nav class="navbar-links">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link active" href="services.html">Services</a>
+          <a class="nav-link" href="contact.html">Contact</a>
+        </nav>
+        <a href="#" class="cart-link cart-link-primary" id="view-cart-link">
+          <span>View Cart</span>
+          <span class="cart-count-badge" data-cart-count>0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <header class="hero center-content compact">
+      <div class="title-brand title-brand-center">
+        <img src="images/ChatGPT Image.png" alt="Momi Repairing Works logo" class="title-brand-logo">
+        <p class="logo-title">Momi Repairing Works</p>
+      </div>
+      <h1>Our Services</h1>
+      
+    </header>
+
+    <section id="agriculture" class="content-section service-section scroll-offset">
+      <h2>Agriculture Machines</h2>
+      <p class="service-description" data-service-desc="agriculture"></p>
+      <div id="agriculture-gallery" class="photo-grid three-col"></div>
+      <div class="custom-order-box">
+        <h3>Customize Your Agricultural Machine Order</h3>
+        <form class="service-order-form" data-order-service="agriculture">
+          <label for="agriMachineName">Machine Name</label>
+          <select id="agriMachineName" name="machineName" required>
+            <option value="">Select machine</option>
+          </select>
+
+          <label for="agriWeight">Weight</label>
+          <select id="agriWeight" name="weight" required>
+            <option value="">Select machine first</option>
+          </select>
+
+          <label for="agriColor">Colour</label>
+          <select id="agriColor" name="color" required>
+            <option value="">Select colour</option>
+            <option value="Black">Black</option>
+            <option value="White">White</option>
+            <option value="Red">Red</option>
+            <option value="Blue">Blue</option>
+            <option value="Green">Green</option>
+            <option value="Yellow">Yellow</option>
+            <option value="Silver">Silver</option>
+            <option value="Brown">Brown</option>
+            <option value="Your Choice">Your Choice</option>
+          </select>
+
+          <label for="agriColorSuggestion">Your Choice / Colour Mix Suggestion</label>
+          <input id="agriColorSuggestion" name="colorSuggestion" type="text" placeholder="Optional, write custom or mixed colour">
+
+          <label for="agriComment">Your Comment and Suggestion</label>
+          <textarea id="agriComment" name="comment" rows="4" required></textarea>
+
+          <label for="agriCustomerName">Your Name</label>
+          <input id="agriCustomerName" name="customerName" type="text" required>
+
+          <label for="agriPhone">Phone</label>
+          <input id="agriPhone" name="phone" type="text" required>
+
+          <div class="order-buttons">
+            <button type="submit" class="btn-primary">Submit New Order</button>
+            <button type="button" class="btn-secondary add-to-cart-order" data-service="agriculture">Add to Cart</button>
+          </div>
+        </form>
+        <p class="message-text" data-order-message="agriculture"></p>
+      </div>
+    </section>
+
+    <section id="doors" class="content-section service-section scroll-offset">
+      <h2>Main Doors</h2>
+      <p class="service-description" data-service-desc="doors"></p>
+      <div id="doors-gallery" class="photo-grid three-col"></div>
+      <div class="custom-order-box">
+        <h3>Customize Your Main Door Order</h3>
+        <form class="service-order-form" data-order-service="doors">
+          <label for="doorType">Door Type</label>
+          <select id="doorType" name="doorType" required>
+            <option value="">Select type</option>
+            <option value="Main">Main</option>
+            <option value="Normal">Normal</option>
+          </select>
+
+          <label for="doorSize">Size</label>
+          <input id="doorSize" name="size" type="text" required>
+
+          <label for="doorWeight">Weight & Quality</label>
+          <select id="doorWeight" name="weight" required>
+            <option value="">Select option</option>
+            <option value="Standard">Standard</option>
+            <option value="Medium">Medium</option>
+            <option value="Heavy">Heavy</option>
+            <option value="Extra Heavy">Extra Heavy</option>
+          </select>
+
+          <label for="doorColor">Colour</label>
+          <select id="doorColor" name="color" required>
+            <option value="">Select colour</option>
+            <option value="Black">Black</option>
+            <option value="White">White</option>
+            <option value="Red">Red</option>
+            <option value="Blue">Blue</option>
+            <option value="Green">Green</option>
+            <option value="Yellow">Yellow</option>
+            <option value="Silver">Silver</option>
+            <option value="Brown">Brown</option>
+            <option value="Your Choice">Your Choice</option>
+          </select>
+
+          <label for="doorColorSuggestion">Your Choice / Colour Mix Suggestion</label>
+          <input id="doorColorSuggestion" name="colorSuggestion" type="text" placeholder="Optional, write custom or mixed colour">
+
+          <label for="doorCustomerName">Your Name</label>
+          <input id="doorCustomerName" name="customerName" type="text" required>
+
+          <label for="doorPhone">Phone</label>
+          <input id="doorPhone" name="phone" type="text" required>
+
+          <div class="order-buttons">
+            <button type="submit" class="btn-primary">Submit New Order</button>
+            <button type="button" class="btn-secondary add-to-cart-order" data-service="doors">Add to Cart</button>
+          </div>
+        </form>
+        <p class="message-text" data-order-message="doors"></p>
+      </div>
+    </section>
+
+    <section id="chogaths" class="content-section service-section scroll-offset">
+      <h2>Chogaths</h2>
+      <p class="service-description" data-service-desc="chogaths"></p>
+      <div id="chogaths-gallery" class="photo-grid two-col"></div>
+      <div class="custom-order-box">
+        <h3>Customize Your Chogath Order</h3>
+        <form class="service-order-form" data-order-service="chogaths">
+          <label for="chogathSize">Chogath Size</label>
+          <select id="chogathSize" name="sizeOption" required>
+            <option value="">Select size</option>
+            <option value="2.5*7">2.5*7</option>
+            <option value="3*7">3*7</option>
+            <option value="3.5*7">3.5*7</option>
+            <option value="4*7">4*7</option>
+            <option value="2.5*8">2.5*8</option>
+            <option value="3*8">3*8</option>
+            <option value="3.5*8">3.5*8</option>
+            <option value="4*8">4*8</option>
+            <option value="Your Size">Your Size</option>
+          </select>
+
+          <div id="chogathCustomSizeFields" class="custom-size-fields is-hidden">
+            <label for="chogathCustomWidth">Width</label>
+            <div class="custom-size-row">
+              <input id="chogathCustomWidth" name="customWidth" type="text" inputmode="decimal" placeholder="Enter width">
+              <select id="chogathCustomWidthUnit" name="customWidthUnit">
+                <option value="ft">Feet</option>
+                <option value="in">Inch</option>
+              </select>
+            </div>
+
+            <label for="chogathCustomHeight">Height</label>
+            <div class="custom-size-row">
+              <input id="chogathCustomHeight" name="customHeight" type="text" inputmode="decimal" placeholder="Enter height">
+              <select id="chogathCustomHeightUnit" name="customHeightUnit">
+                <option value="ft">Feet</option>
+                <option value="in">Inch</option>
+              </select>
+            </div>
+
+            <p id="chogathCustomSizePreview" class="small-note custom-size-note"></p>
+          </div>
+          <input id="chogathCustomSize" name="customSize" type="hidden">
+
+          <label for="chogathCompanyName">Company Name</label>
+          <input id="chogathCompanyName" name="companyName" type="text" placeholder="Optional, any format allowed">
+
+          <label for="chogathWeight">Weight & Quality</label>
+          <select id="chogathWeight" name="weight" required>
+            <option value="">Select option</option>
+            <option value="Standard">Standard</option>
+            <option value="Medium">Medium</option>
+            <option value="Heavy">Heavy</option>
+            <option value="Extra Heavy">Extra Heavy</option>
+          </select>
+
+          <label for="chogathCustomerName">Your Name</label>
+          <input id="chogathCustomerName" name="customerName" type="text" required>
+
+          <label for="chogathPhone">Phone</label>
+          <input id="chogathPhone" name="phone" type="text" required>
+
+          <div class="order-buttons">
+            <button type="submit" class="btn-primary">Submit Order Detail</button>
+            <button type="button" class="btn-secondary add-to-cart-order" data-service="chogaths">Add to Cart</button>
+          </div>
+        </form>
+        <p class="message-text" data-order-message="chogaths"></p>
+      </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cart-modal">
+      <div class="cart-modal-content">
+        <div class="cart-modal-header">
+          <h2>Your Cart</h2>
+          <button class="close-btn" id="close-cart-btn">&times;</button>
+        </div>
+        <div class="cart-items-container" id="cart-items-container">
+          <p class="empty-cart-msg">Your cart is empty</p>
+        </div>
+        <div class="cart-summary">
+          <div class="cart-total">
+            <strong>Total Items:</strong>
+            <span id="cart-total-items">0</span>
+          </div>
+        </div>
+        <button class="btn-primary" id="checkout-btn" disabled>Place Order</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Admin Login Modal -->
+  <div class="admin-login-modal" id="admin-login-modal">
+    <div class="admin-login-modal-content">
+      <div class="admin-login-modal-header">
+        <h2>Admin Login</h2>
+        <button class="admin-login-close-btn" id="admin-login-close-btn">&times;</button>
+      </div>
+      <div class="admin-login-modal-body">
+        <p class="small-note">Demo Credentials: <strong>admin / momi123</strong></p>
+        <form id="admin-login-form">
+          <label for="admin-username">Username</label>
+          <input id="admin-username" name="username" type="text" required>
+          <label for="admin-password">Password</label>
+          <input id="admin-password" name="password" type="password" required>
+          <button type="submit" class="btn-primary">Login</button>
+          <p id="admin-login-message" class="message-text"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Momi Repairing Works | Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="home">
+  <header class="site-navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand">
+        <img src="images/ChatGPT Image.png" alt="Momi Repairing Works logo" class="navbar-brand-logo">
+        <span>MRW</span>
+      </a>
+      <button class="navbar-toggle" id="navbar-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-navbar-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="navbar-menu" id="site-navbar-menu">
+        <nav class="navbar-links">
+          <a class="nav-link active" href="index.html">Home</a>
+          <a class="nav-link" href="services.html">Services</a>
+          <a class="nav-link" href="contact.html">Contact</a>
+        </nav>
+        <a href="#" class="cart-link cart-link-primary" id="view-cart-link">
+          <span>View Cart</span>
+          <span class="cart-count-badge" data-cart-count>0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <header class="hero center-content">
+      <div class="home-logo-wrap">
+        <img src="images/ChatGPT Image.png" alt="Momi Repairing Works logo" class="home-logo">
+      </div>
+      <h1 id="typed-hero-title" data-typed-text="Welcome to Momi Repairing Works"></h1>
+      <p id="welcome-text">
+        We provide high quality repairing and manufacturing services for agriculture machines, main doors and chogaths. Our goal is to deliver strong, durable and reliable work with customer satisfaction.
+      </p>
+      <button class="btn-primary-outline" id="open-cart-btn">View Cart</button>
+    </header>
+
+    <section class="content-section contact-quick-section">
+      <div class="contact-quick-wrapper">
+        <div class="contact-info-block">
+          <div class="contact-info-card">
+            <h2>Quick Contact</h2>
+            <div class="contact-details">
+              <p><strong>Phone:</strong> <a id="contact-phone-quick" href="tel:"></a></p>
+              <p><strong>Address:</strong> <span id="contact-address-quick"></span></p>
+              <p><strong>Email:</strong> <a id="contact-email-quick" href="mailto:"></a></p>
+            </div>
+          </div>
+          <div class="experience-highlight-card">
+            <div class="experience-badge-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img" focusable="false">
+                <path d="M12 2l2.2 4.5 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5L4.8 7.2l5-.7L12 2zm-6 15.2h12v2H6v-2z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3>Our Experience</h3>
+              <p>Mr. Karamjeet Singh and Mr. Ranjeet Singh each have 30 years of experience in machine repair and servicing.</p>
+              <p>They are highly skilled and trusted for quality work and customer satisfaction.</p>
+            </div>
+          </div>
+        </div>
+        <form class="quick-enquiry-form" id="quick-contact-form">
+          <h3>Send Quick Enquiry</h3>
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="text" name="phone" placeholder="Phone Number" required>
+          <textarea name="message" placeholder="Brief message..." rows="2" required></textarea>
+          <button type="submit" class="btn-primary">Send</button>
+          <p class="message-text" id="quick-contact-message"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>Our Services</h2>
+      <div class="service-preview-grid">
+        <a href="services.html#agriculture" class="service-box">
+          <h3>Agriculture Machines</h3>
+          <p>Repairing and maintenance services for agricultural equipment.</p>
+        </a>
+        <a href="services.html#doors" class="service-box">
+          <h3>Main Doors</h3>
+          <p>Strong and durable main doors with quality materials.</p>
+        </a>
+        <a href="services.html#chogaths" class="service-box">
+          <h3>Chogaths</h3>
+          <p>Custom made chogaths with strong structure and long life.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section repair-section">
+      <div class="section-title-wrap">
+        <span class="section-kicker">Our Expertise</span>
+        <h2>Machines We Repair</h2>
+      </div>
+      <div class="repair-machine-grid">
+        <div class="repair-machine-card">
+          <img src="images/palloh.webp" alt="Plough machine" class="repair-machine-photo">
+          <h3>Plough</h3>
+          <p>Field-ready repair support</p>
+        </div>
+        <div class="repair-machine-card">
+          <img src="images/harrow.jpg" alt="Harrow machine" class="repair-machine-photo">
+          <h3>Harrow</h3>
+          <p>Strong frame and blade work</p>
+        </div>
+        <div class="repair-machine-card">
+          <img src="images/seed-drill.webp" alt="Seed drill machine" class="repair-machine-photo">
+          <h3>Seed Drill</h3>
+          <p>Precise servicing and fixing</p>
+        </div>
+        <div class="repair-machine-card">
+          <img src="images/rotavator.webp" alt="Rotavator machine" class="repair-machine-photo">
+          <h3>Rotavator</h3>
+          <p>Heavy-duty restoration work</p>
+        </div>
+        <div class="repair-machine-card">
+          <img src="images/cultivater.png" alt="Cultivator machine" class="repair-machine-photo">
+          <h3>Cultivator</h3>
+          <p>Reliable tine and body repair</p>
+        </div>
+        <div class="repair-machine-card">
+          <img src="images/water pump.webp" alt="Sprayer machine" class="repair-machine-photo">
+          <h3>Sprayer</h3>
+          <p>Fast maintenance assistance</p>
+        </div>
+        <div class="repair-machine-card">
+          <img src="images/thresher.jpg" alt="Thresher machine" class="repair-machine-photo">
+          <h3>Thresher</h3>
+          <p>Performance-focused repairs</p>
+        </div>
+        <div class="repair-machine-card">
+          <img src="images/-combine-harvester.avif" alt="Combine harvester machine" class="repair-machine-photo">
+          <h3>Combine Harvester</h3>
+          <p>Advanced large-machine service</p>
+        </div>
+        <div class="repair-machine-card">
+          <img src="images/water pump.webp" alt="Water pump machine" class="repair-machine-photo">
+          <h3>Water Pump</h3>
+          <p>Dependable motor repair care</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section why-choose-section">
+      <div class="section-title-wrap">
+        <span class="section-kicker">Why Customers Trust Us</span>
+        <h2>Why Choose Us</h2>
+      </div>
+      <div class="why-choose-grid">
+        <div class="why-choose-card">
+          <span class="why-icon">&#10003;</span>
+          <h3>Experienced Work</h3>
+          <p>Skilled repair and fabrication work with practical field experience.</p>
+        </div>
+        <div class="why-choose-card">
+          <span class="why-icon">&#10003;</span>
+          <h3>Reliable Service</h3>
+          <p>Strong commitment to dependable quality and lasting customer support.</p>
+        </div>
+        <div class="why-choose-card">
+          <span class="why-icon">&#10003;</span>
+          <h3>Affordable Price</h3>
+          <p>Balanced pricing with quality materials and honest workmanship.</p>
+        </div>
+        <div class="why-choose-card">
+          <span class="why-icon">&#10003;</span>
+          <h3>Fast Repair</h3>
+          <p>Quick turnaround to reduce downtime and keep your work moving.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>Founders Photos</h2>
+      <div id="admin-photos-gallery" class="photo-grid two-col"></div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cart-modal">
+      <div class="cart-modal-content">
+        <div class="cart-modal-header">
+          <h2>Your Cart</h2>
+          <button class="close-btn" id="close-cart-btn">&times;</button>
+        </div>
+        <div class="cart-items-container" id="cart-items-container">
+          <p class="empty-cart-msg">Your cart is empty</p>
+        </div>
+        <div class="cart-summary">
+          <div class="cart-total">
+            <strong>Total Items:</strong>
+            <span id="cart-total-items">0</span>
+          </div>
+        </div>
+        <button class="btn-primary" id="checkout-btn" disabled>Place Order</button>
+      </div>
+    </div>
+
+    <footer class="site-footer home-footer">
+      <div class="footer-grid footer-grid-home">
+        <div class="footer-brand-block">
+          <h4>Momi Repairing Works</h4>
+          <p id="footer-about"></p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <p><a href="index.html">Home</a></p>
+          <p><a href="services.html">Services</a></p>
+          <p><a href="contact.html">Contact Us</a></p>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p id="footer-phone"></p>
+          <p id="footer-address"></p>
+          <p id="footer-email"></p>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-socials" aria-label="Social media links">
+        <a id="footer-instagram" class="social-icon-link" target="_blank" rel="noopener noreferrer" href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.8 3h8.4A4.8 4.8 0 0 1 21 7.8v8.4a4.8 4.8 0 0 1-4.8 4.8H7.8A4.8 4.8 0 0 1 3 16.2V7.8A4.8 4.8 0 0 1 7.8 3zm0 1.8A3 3 0 0 0 4.8 7.8v8.4a3 3 0 0 0 3 3h8.4a3 3 0 0 0 3-3V7.8a3 3 0 0 0-3-3H7.8zm8.85 1.35a1.05 1.05 0 1 1 0 2.1 1.05 1.05 0 0 1 0-2.1zM12 7.6A4.4 4.4 0 1 1 7.6 12 4.4 4.4 0 0 1 12 7.6zm0 1.8A2.6 2.6 0 1 0 14.6 12 2.6 2.6 0 0 0 12 9.4z"/></svg>
+        </a>
+        <a id="footer-facebook" class="social-icon-link" target="_blank" rel="noopener noreferrer" href="#" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.2c0-.9.3-1.6 1.6-1.6H16V5.1c-.2 0-.9-.1-1.8-.1-2.9 0-4.7 1.7-4.7 4.8V11H7v3h2.5v7h4z"/></svg>
+        </a>
+        <a id="footer-whatsapp" class="social-icon-link" target="_blank" rel="noopener noreferrer" href="#" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.8c0 4.7-3.8 8.5-8.5 8.5-1.5 0-2.9-.4-4.2-1.1L4 20l.9-3.2a8.4 8.4 0 0 1-1.3-4.5A8.5 8.5 0 0 1 12 3.8a8.5 8.5 0 0 1 8 8zm-8-6.3c-3.5 0-6.4 2.8-6.4 6.3 0 1.4.4 2.7 1.3 3.8l.2.3-.5 1.7 1.8-.5.3.2c1 .6 2.2 1 3.4 1 3.6 0 6.5-2.8 6.5-6.3s-2.9-6.5-6.6-6.5zm3.8 8c-.2-.1-1.2-.6-1.4-.7-.2-.1-.3-.1-.5.1l-.7.8c-.1.1-.3.2-.5.1-.2-.1-.9-.3-1.8-1.1-.7-.6-1.1-1.3-1.3-1.5-.1-.2 0-.4.1-.5l.3-.4.2-.4c.1-.1.1-.3 0-.4l-.7-1.7c-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.6 4 3.5.6.3 1.1.4 1.5.5.6.2 1.2.1 1.7.1.5-.1 1.2-.5 1.4-.9.2-.4.2-.8.2-.9 0-.2-.1-.2-.3-.3z"/></svg>
+        </a>
+        <a id="footer-youtube" class="social-icon-link is-hidden" target="_blank" rel="noopener noreferrer" href="#" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2c-.2-.9-.9-1.6-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4c-.9.2-1.6.9-1.8 1.8C2 8.8 2 12 2 12s0 3.2.4 4.8c.2.9.9 1.6 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4c.9-.2 1.6-.9 1.8-1.8.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15.2V8.8l5.2 3.2L10 15.2z"/></svg>
+        </a>
+      </div>
+      <p class="copy-text copyright-line">Copyright &copy; <span id="year"></span> Momi Repairing Works. All rights reserved.</p>
+    </footer>
+  </main>
+
+  <!-- Admin Login Modal -->
+  <div class="admin-login-modal" id="admin-login-modal">
+    <div class="admin-login-modal-content">
+      <div class="admin-login-modal-header">
+        <h2>Admin Login</h2>
+        <button class="admin-login-close-btn" id="admin-login-close-btn">&times;</button>
+      </div>
+      <div class="admin-login-modal-body">
+        <p class="small-note">Demo Credentials: <strong>admin / momi123</strong></p>
+        <form id="admin-login-form">
+          <label for="admin-username">Username</label>
+          <input id="admin-username" name="username" type="text" required>
+          <label for="admin-password">Password</label>
+          <input id="admin-password" name="password" type="password" required>
+          <button type="submit" class="btn-primary">Login</button>
+          <p id="admin-login-message" class="message-text"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
