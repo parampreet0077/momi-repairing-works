@@ -1,15 +1,15 @@
-const BASE_URL = "https://momi-repairing-works.onrender.com";
+const BASE_URL = "";
 
 const api = {
   publicData: `${BASE_URL}/api/public/site-data`,
   adminSession: `${BASE_URL}/api/admin/session`,
   adminDashboard: `${BASE_URL}/api/admin/dashboard-data`,
-  login: `${BASE_URL}/admin/login`,
+  login: `${BASE_URL}/api/admin/login`,
   logout: `${BASE_URL}/api/admin/logout`,
   businessInfo: `${BASE_URL}/api/admin/business-info`,
   serviceDescriptions: `${BASE_URL}/api/admin/service-descriptions`,
-  enquiries: `${BASE_URL}/enquiry`,
-  orders: `${BASE_URL}/orders`,
+  enquiries: `${BASE_URL}/api/public/enquiries`,
+  orders: `${BASE_URL}/api/public/orders`,
   adminEnquiries: `${BASE_URL}/api/admin/enquiries`,
   adminOrders: `${BASE_URL}/api/admin/orders`,
   photos: (category) => `${BASE_URL}/api/admin/photos/${category}`,
@@ -370,7 +370,7 @@ async function initAdminLogin() {
     message.textContent = "Logging in...";
 
     const payload = {
-      username: form.username.value.trim(),
+      username: form.username.value,
       password: form.password.value,
     };
 

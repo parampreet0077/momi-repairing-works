@@ -10,9 +10,18 @@
     "facebook": "https://www.facebook.com/"
   },
   "services": {
-    "agriculture": "Repairing, welding and maintenance support for agriculture machines that need strong and long-lasting performance.",
-    "doors": "Custom-built and repaired main doors made with durable materials, solid fitting and a neat finish.",
-    "chogaths": "Strong, custom-sized chogaths created for long life, reliable support and clean installation."
+    "agriculture": {
+      "description": "Repairing, welding and maintenance support for agriculture machines that need strong and long-lasting performance.",
+      "enabled": true
+    },
+    "doors": {
+      "description": "Custom-built and repaired main doors made with durable materials, solid fitting and a neat finish.",
+      "enabled": true
+    },
+    "chogaths": {
+      "description": "Strong, custom-sized chogaths created for long life, reliable support and clean installation.",
+      "enabled": true
+    }
   },
   "galleries": {
     "admin": [],
