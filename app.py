@@ -21,7 +21,7 @@ from flask_cors import CORS
 ROOT_DIR = Path(__file__).resolve().parent
 DATA_DIR = ROOT_DIR / "data"
 UPLOADS_DIR = ROOT_DIR / "uploads"
-STATIC_DIR = ROOT_DIR / "static"
+FRONTEND_DIR = ROOT_DIR / "frontend"
 
 SITE_DATA_FILE = DATA_DIR / "site-data.json"
 ADMIN_DATA_FILE = DATA_DIR / "admin.json"
@@ -671,7 +671,7 @@ def delete_photo(category, photo_id):
 
 @app.route("/login", methods=["GET"])
 def login_page():
-    return send_from_directory(ROOT_DIR, "admin-login.html")
+    return send_from_directory(FRONTEND_DIR, "admin-login.html")
 
 
 @app.route("/admin", methods=["GET"])
@@ -680,7 +680,7 @@ def admin_page():
         response = make_response("", 302)
         response.headers["Location"] = "/login"
         return response
-    return send_from_directory(ROOT_DIR, "admin.html")
+    return send_from_directory(FRONTEND_DIR, "admin.html")
 
 
 @app.route("/admin-dashboard", methods=["GET"])
@@ -693,17 +693,17 @@ def dashboard_redirect():
 
 @app.route("/css/<path:filename>")
 def css_files(filename):
-    return send_from_directory(STATIC_DIR / "css", filename)
+    return send_from_directory(FRONTEND_DIR / "css", filename)
 
 
 @app.route("/js/<path:filename>")
 def js_files(filename):
-    return send_from_directory(STATIC_DIR / "js", filename)
+    return send_from_directory(FRONTEND_DIR / "js", filename)
 
 
 @app.route("/images/<path:filename>")
 def image_files(filename):
-    return send_from_directory(STATIC_DIR / "images", filename)
+    return send_from_directory(FRONTEND_DIR / "images", filename)
 
 
 @app.route("/uploads/<path:filename>")
@@ -716,7 +716,7 @@ def page_files(filename):
     blocked = {"admin-login.html", "admin.html", "dashboard.html"}
     if filename in blocked:
         return jsonify({"error": "Not found"}), 404
-    return send_from_directory(ROOT_DIR, filename)
+    return send_from_directory(FRONTEND_DIR, filename)
 
 
 ensure_project_files()
