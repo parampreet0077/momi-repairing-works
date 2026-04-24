@@ -149,8 +149,8 @@ function checkAdminLoginModal() {
 }
 
 function showAdminLoginModal() {
-  // Modal functionality removed - now using direct /login page
-  window.location.href = "/login";
+  // Modal functionality removed - now using direct /admin-login.html page
+  window.location.href = "/admin-login.html";
 }
 
 function hideAdminLoginModal() {
@@ -352,7 +352,7 @@ async function initAdminLogin() {
   try {
     const session = await fetchJson(api.adminSession, { method: "GET" });
     if (session.authenticated) {
-      window.location.href = "/admin";
+      window.location.href = "/admin.html";
       return;
     }
   } catch (error) {
@@ -380,7 +380,7 @@ async function initAdminLogin() {
         body: JSON.stringify(payload),
       });
       message.textContent = "Login successful. Redirecting...";
-      window.location.href = "/admin";
+      window.location.href = "/admin.html";
     } catch (error) {
       message.textContent = error.message;
     }
@@ -393,7 +393,7 @@ async function initAdminDashboard() {
   }));
 
   if (!session.authenticated) {
-    window.location.href = "/login";
+    window.location.href = "/admin-login.html";
     return;
   }
 
@@ -415,7 +415,7 @@ function bindLogout() {
 
   logoutBtn.addEventListener("click", async () => {
     await fetchJson(api.logout, { method: "POST", body: JSON.stringify({}) }).catch(() => null);
-    window.location.href = "/login";
+    window.location.href = "/admin-login.html";
   });
 }
 
