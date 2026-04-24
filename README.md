@@ -8,14 +8,19 @@ A full-stack web application for Momi Repairing Works — a workshop that repair
 
 ```
 momi-repairing-works/
-├── backend/          ← Flask API (deploy to Render)
-│   ├── app.py        ← Main server
+├── backend/                  ← Flask API (deploy to Render)
+│   ├── app.py                ← Main server
 │   ├── requirements.txt
-│   ├── Procfile      ← Render deployment config
-│   ├── data/         ← Live JSON database
-│   └── uploads/      ← Uploaded gallery images
+│   ├── Procfile              ← Render deployment config
+│   ├── data/                 ← Live JSON database
+│   ├── uploads/              ← Uploaded gallery images
+│   └── database/             ← Seed/default data (reference copies)
+│       ├── seed-users.json
+│       ├── seed-site-data.json
+│       ├── seed-enquiries.json
+│       └── seed-orders.json
 │
-├── frontend/         ← Static site (deploy to Vercel / Netlify)
+├── frontend/                 ← Static site (deploy to Vercel / Netlify)
 │   ├── index.html
 │   ├── services.html
 │   ├── contact.html
@@ -25,11 +30,9 @@ momi-repairing-works/
 │   ├── js/script.js
 │   └── images/
 │
-└── database/         ← Seed/default data (reference copies)
-    ├── seed-users.json
-    ├── seed-site-data.json
-    ├── seed-enquiries.json
-    └── seed-orders.json
+├── .gitignore
+├── README.md
+└── vercel.json
 ```
 
 ---
