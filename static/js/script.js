@@ -1,19 +1,21 @@
+const BASE_URL = "https://momi-repairing-works.onrender.com";
+
 const api = {
-  publicData: "/api/public/site-data",
-  adminSession: "/api/admin/session",
-  adminDashboard: "/api/admin/dashboard-data",
-  login: "/api/admin/login",
-  logout: "/api/admin/logout",
-  businessInfo: "/api/admin/business-info",
-  serviceDescriptions: "/api/admin/service-descriptions",
-  enquiries: "/api/public/enquiries",
-  orders: "/api/public/orders",
-  adminEnquiries: "/api/admin/enquiries",
-  adminOrders: "/api/admin/orders",
-  photos: (category) => `/api/admin/photos/${category}`,
-  photoItem: (category, id) => `/api/admin/photos/${category}/${id}`,
-  enquiryItem: (id) => `/api/admin/enquiries/${id}`,
-  orderItem: (id) => `/api/admin/orders/${id}`,
+  publicData: `${BASE_URL}/api/public/site-data`,
+  adminSession: `${BASE_URL}/api/admin/session`,
+  adminDashboard: `${BASE_URL}/api/admin/dashboard-data`,
+  login: `${BASE_URL}/admin/login`,
+  logout: `${BASE_URL}/api/admin/logout`,
+  businessInfo: `${BASE_URL}/api/admin/business-info`,
+  serviceDescriptions: `${BASE_URL}/api/admin/service-descriptions`,
+  enquiries: `${BASE_URL}/enquiry`,
+  orders: `${BASE_URL}/orders`,
+  adminEnquiries: `${BASE_URL}/api/admin/enquiries`,
+  adminOrders: `${BASE_URL}/api/admin/orders`,
+  photos: (category) => `${BASE_URL}/api/admin/photos/${category}`,
+  photoItem: (category, id) => `${BASE_URL}/api/admin/photos/${category}/${id}`,
+  enquiryItem: (id) => `${BASE_URL}/api/admin/enquiries/${id}`,
+  orderItem: (id) => `${BASE_URL}/api/admin/orders/${id}`,
 };
 
 const galleryPlaceholders = {
