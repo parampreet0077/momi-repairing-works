@@ -1,21 +1,21 @@
-const BASE_URL = "";
+const API_BASE_URL = "https://momi-backend.onrender.com";
 
 const api = {
-  publicData: `${BASE_URL}/api/public/site-data`,
-  adminSession: `${BASE_URL}/api/admin/session`,
-  adminDashboard: `${BASE_URL}/api/admin/dashboard-data`,
-  login: `${BASE_URL}/api/admin/login`,
-  logout: `${BASE_URL}/api/admin/logout`,
-  businessInfo: `${BASE_URL}/api/admin/business-info`,
-  serviceDescriptions: `${BASE_URL}/api/admin/service-descriptions`,
-  enquiries: `${BASE_URL}/api/public/enquiries`,
-  orders: `${BASE_URL}/api/public/orders`,
-  adminEnquiries: `${BASE_URL}/api/admin/enquiries`,
-  adminOrders: `${BASE_URL}/api/admin/orders`,
-  photos: (category) => `${BASE_URL}/api/admin/photos/${category}`,
-  photoItem: (category, id) => `${BASE_URL}/api/admin/photos/${category}/${id}`,
-  enquiryItem: (id) => `${BASE_URL}/api/admin/enquiries/${id}`,
-  orderItem: (id) => `${BASE_URL}/api/admin/orders/${id}`,
+  publicData: `${API_BASE_URL}/api/public/site-data`,
+  adminSession: `${API_BASE_URL}/api/admin/session`,
+  adminDashboard: `${API_BASE_URL}/api/admin/dashboard-data`,
+  login: `${API_BASE_URL}/api/admin/login`,
+  logout: `${API_BASE_URL}/api/admin/logout`,
+  businessInfo: `${API_BASE_URL}/api/admin/business-info`,
+  serviceDescriptions: `${API_BASE_URL}/api/admin/service-descriptions`,
+  enquiries: `${API_BASE_URL}/api/public/enquiries`,
+  orders: `${API_BASE_URL}/api/public/orders`,
+  adminEnquiries: `${API_BASE_URL}/api/admin/enquiries`,
+  adminOrders: `${API_BASE_URL}/api/admin/orders`,
+  photos: (category) => `${API_BASE_URL}/api/admin/photos/${category}`,
+  photoItem: (category, id) => `${API_BASE_URL}/api/admin/photos/${category}/${id}`,
+  enquiryItem: (id) => `${API_BASE_URL}/api/admin/enquiries/${id}`,
+  orderItem: (id) => `${API_BASE_URL}/api/admin/orders/${id}`,
 };
 
 const galleryPlaceholders = {
@@ -167,7 +167,7 @@ async function fetchJson(url, options = {}) {
       "Content-Type": "application/json",
       ...(options.headers || {}),
     },
-    credentials: "same-origin",
+    credentials: "include",
     ...options,
   });
 

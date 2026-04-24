@@ -86,7 +86,7 @@ file_lock = threading.Lock()
 
 app = Flask(__name__)
 
-FRONTEND_URL = os.environ.get("MRW_FRONTEND_URL", "*")
+FRONTEND_URL = os.environ.get("MRW_FRONTEND_URL", "http://localhost:5500")
 CORS(app, supports_credentials=True, origins=FRONTEND_URL)
 
 
@@ -466,13 +466,14 @@ def admin_login():
         return jsonify({"error": "Invalid username or password"}), 401
 
     response = make_response(jsonify({"message": "Login successful"}))
+    is_production = os.environ.get("FLASK_ENV") == "production"
     response.set_cookie(
         COOKIE_NAME,
         stored_username,
         max_age=SESSION_MAX_AGE,
         httponly=True,
-        samesite="Lax",
-        secure=os.environ.get("FLASK_ENV") == "production",
+        samesite="None" if is_production else "Lax",
+        secure=is_production,
     )
     return response
 

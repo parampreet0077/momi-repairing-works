@@ -48,7 +48,7 @@ The backend runs on `http://localhost:5000`.
 
 | Variable           | Purpose                              |
 |--------------------|--------------------------------------|
-| `MRW_FRONTEND_URL` | Allowed CORS origin (e.g. Vercel URL)|
+| `MRW_FRONTEND_URL` | Allowed CORS origin — **required** (e.g. `https://momi-repairing-works.vercel.app`)|
 | `MRW_SMTP_HOST`    | SMTP server for email notifications  |
 | `MRW_SMTP_PORT`    | SMTP port                            |
 | `MRW_SMTP_USERNAME`| SMTP username                        |
