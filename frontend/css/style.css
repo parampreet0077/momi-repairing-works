@@ -265,6 +265,19 @@ body[data-page="admin-dashboard"] .main-content {
   box-shadow: var(--shadow);
 }
 
+body[data-page="home"] .hero {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
+    url("../images/hero-bg.jpg") center/cover no-repeat;
+  color: #ffffff;
+  border: none;
+}
+
+body[data-page="home"] .hero p {
+  color: #e7edf5;
+}
+
+
 .hero.compact {
   padding: 44px 22px;
 }
