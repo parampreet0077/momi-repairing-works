@@ -89,7 +89,6 @@ const agricultureMachineCatalog = [
 
 document.addEventListener("DOMContentLoaded", () => {
   setYear();
-  initTypedHeroTitle();
 
   const page = document.body.dataset.page;
   if (page === "home" || page === "services" || page === "contact") {
@@ -109,32 +108,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // initAdminLoginModal();
 });
 
-function initTypedHeroTitle() {
-  const title = document.getElementById("typed-hero-title");
-  if (!title) {
-    return;
-  }
-
-  const text = title.dataset.typedText || "";
-  let index = 0;
-
-  title.textContent = "";
-  title.classList.add("is-typing");
-
-  const typeNextCharacter = () => {
-    if (index < text.length) {
-      title.textContent += text[index];
-      index += 1;
-      const nextDelay = text[index - 1] === " " ? 45 : 52;
-      window.setTimeout(typeNextCharacter, nextDelay);
-      return;
-    }
-
-    title.classList.remove("is-typing");
-  };
-
-  window.setTimeout(typeNextCharacter, 180);
-}
 
 function setYear() {
   const yearNode = document.getElementById("year");

@@ -282,6 +282,35 @@ body[data-page="home"] .hero p {
   padding: 44px 22px;
 }
 
+.split-hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 2rem;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .split-hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .split-hero .hero-right {
+    grid-row: 1; /* Move logo to top on mobile */
+  }
+}
+
+.floating-logo {
+  animation: floatUpDown 4s ease-in-out infinite;
+}
+
+@keyframes floatUpDown {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
 .center-content {
   text-align: center;
 }
