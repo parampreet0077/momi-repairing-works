@@ -786,11 +786,27 @@ body[data-page="admin-dashboard"] .main-content {
   font-size: 0.9rem;
 }
 
+.footer-bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
 .copyright-line {
   text-align: center;
   color: #d1d5db;
   margin-top: 0;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.developer-credit {
+  margin-top: 0;
+  color: #d1d5db;
+  font-size: 0.75rem;
+  text-align: right;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  white-space: nowrap;
 }
 
 .contact-card p {
