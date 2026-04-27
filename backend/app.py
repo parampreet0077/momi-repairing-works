@@ -298,7 +298,7 @@ def persist_base64_file(item, category):
 
     header, encoded = data_url.split(";base64,", 1)
     mime_type = header.removeprefix("data:")
-    extension = mimetypes.guess_extension(mime_type) or ".png"
+    extension = mimetypes.guess_extension(mime_type) or ".webp"
     filename = f"{uuid.uuid4().hex}{extension}"
     output_path = UPLOADS_DIR / category / filename
 
