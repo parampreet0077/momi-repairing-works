@@ -35,14 +35,43 @@
   </header>
 
   <main class="main-content">
-    <header class="hero split-hero">
+    <header class="hero split-hero home-hero-panel" data-reveal>
+      <div class="hero-aurora hero-aurora-one" aria-hidden="true"></div>
+      <div class="hero-aurora hero-aurora-two" aria-hidden="true"></div>
       <div class="hero-left">
         <h1 id="hero-title">Welcome to<br>Momi Repairing Works</h1>
-        <button class="btn-primary-outline" id="open-cart-btn">View Cart</button>
+        <div class="hero-actions">
+          <a href="services.html" class="btn-secondary hero-link-btn">Explore Services</a>
+        </div>
       </div>
     </header>
 
-    <section class="content-section contact-quick-section">
+    <section class="content-section stats-section" data-reveal>
+      <div class="section-title-wrap">
+        <span class="section-kicker">At A Glance</span>
+        <h2>Built On Real Workshop Experience</h2>
+      </div>
+      <div class="stats-grid">
+        <article class="stat-card">
+          <span class="stat-value" data-counter-target="9">0</span>
+          <span class="stat-label">Machine Types</span>
+        </article>
+        <article class="stat-card">
+          <span class="stat-value" data-counter-target="500">0</span>
+          <span class="stat-label">Happy Customers</span>
+        </article>
+        <article class="stat-card">
+          <span class="stat-value" data-counter-target="1200">0</span>
+          <span class="stat-label">Orders Supported</span>
+        </article>
+        <article class="stat-card">
+          <span class="stat-value" data-counter-target="30">0</span>
+          <span class="stat-label">Years Experience</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section contact-quick-section" data-reveal>
       <div class="contact-quick-wrapper">
         <div class="contact-info-block">
           <div class="contact-info-card">
@@ -77,7 +106,7 @@
       </div>
     </section>
 
-    <section class="content-section">
+    <section class="content-section" data-reveal>
       <h2>Our Services</h2>
       <div class="service-preview-grid">
         <a href="services.html#agriculture" class="service-box">
@@ -95,7 +124,7 @@
       </div>
     </section>
 
-    <section class="content-section repair-section">
+    <section class="content-section repair-section" data-reveal>
       <div class="section-title-wrap">
         <span class="section-kicker">Our Expertise</span>
         <h2>Machines We Repair</h2>
@@ -149,7 +178,7 @@
       </div>
     </section>
 
-    <section class="content-section why-choose-section">
+    <section class="content-section why-choose-section" data-reveal>
       <div class="section-title-wrap">
         <span class="section-kicker">Why Customers Trust Us</span>
         <h2>Why Choose Us</h2>
@@ -178,7 +207,7 @@
       </div>
     </section>
 
-    <section class="content-section">
+    <section class="content-section" data-reveal>
       <h2>Founders Photos</h2>
       <div id="admin-photos-gallery" class="photo-grid two-col"></div>
     </section>
@@ -214,6 +243,7 @@
           <p><a href="index.html">Home</a></p>
           <p><a href="services.html">Services</a></p>
           <p><a href="contact.html">Contact Us</a></p>
+          <p><a href="privacy-policy.html">Privacy Policy</a></p>
         </div>
         <div>
           <h4>Contact</h4>

@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Momi Repairing Works | Admin Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body data-page="admin-login">
+  <aside class="sidebar">
+    <div class="sidebar-brand sidebar-brand-compact">
+      <img src="./images/ChatGPT Image.png" alt="Momi Repairing Works logo" class="sidebar-brand-logo">
+      <span>MRW</span>
+    </div>
+    <nav>
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="services.html">Services</a>
+      <a class="nav-link" href="contact.html">Contact</a>
+      <a class="nav-link active" href="/login">Admin Login</a>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <section class="auth-section">
+      <div class="auth-card">
+        <div class="title-brand title-brand-center title-brand-dark">
+          <img src="./images/ChatGPT Image.png" alt="Momi Repairing Works logo" class="title-brand-logo">
+          <p class="logo-title">Momi Repairing Works</p>
+        </div>
+        <h1>Admin Login</h1>
+        <p class="small-note">Use your admin username and password to continue to the admin dashboard.</p>
+        <form id="login-form">
+          <label for="username">Username</label>
+          <input id="username" name="username" type="text" required>
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" required>
+          <button type="submit" class="btn-primary">Login</button>
+          <p id="login-message" class="message-text"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="./js/script.js"></script>
+</body>
+</html>

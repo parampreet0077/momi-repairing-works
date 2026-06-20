@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Momi Repairing Works | Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body data-page="admin">
+  <aside class="sidebar">
+    <div class="sidebar-brand sidebar-brand-compact">
+      <img src="./images/ChatGPT Image.png" alt="Momi Repairing Works logo" class="sidebar-brand-logo">
+      <span>MRW</span>
+    </div>
+    <nav>
+      <a class="nav-link active" href="/admin">Dashboard</a>
+      <a class="nav-link" href="#site-settings">Site Settings</a>
+      <a class="nav-link" href="#media-library">Media Library</a>
+      <a class="nav-link" href="#customer-enquiries">Enquiries</a>
+      <a class="nav-link" href="#custom-orders">Orders</a>
+      <a class="nav-link" href="/login">Admin Login</a>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <header class="dashboard-head admin-shell-head">
+      <div>
+        <div class="title-brand title-brand-dark">
+          <img src="./images/ChatGPT Image.png" alt="Momi Repairing Works logo" class="title-brand-logo">
+          <p class="logo-title">Momi Repairing Works</p>
+        </div>
+        <h1>Admin Dashboard</h1>
+        <p class="small-note">Manage website content, gallery images, enquiries, and custom orders from one secure route.</p>
+      </div>
+      <div class="admin-head-actions">
+        <div class="admin-user-badge">Signed in as <strong id="admin-session-user">Admin</strong></div>
+        <button id="logout-btn" class="btn-secondary">Logout</button>
+      </div>
+    </header>
+
+    <section class="content-section admin-overview">
+      <div class="section-head">
+        <div>
+          <h2>Overview</h2>
+          <p class="small-note">A quick snapshot of the current admin workspace.</p>
+        </div>
+      </div>
+      <div class="admin-stats-grid">
+        <article class="admin-stat-card">
+          <span class="admin-stat-label">Active Services</span>
+          <strong id="overview-active-services" class="admin-stat-value">0</strong>
+          <p class="small-note">Visible service sections on the public website.</p>
+        </article>
+        <article class="admin-stat-card">
+          <span class="admin-stat-label">Customer Enquiries</span>
+          <strong id="overview-enquiries" class="admin-stat-value">0</strong>
+          <p class="small-note">Total leads received from the contact form.</p>
+        </article>
+        <article class="admin-stat-card">
+          <span class="admin-stat-label">Custom Orders</span>
+          <strong id="overview-orders" class="admin-stat-value">0</strong>
+          <p class="small-note">Orders captured from service customization forms.</p>
+        </article>
+        <article class="admin-stat-card">
+          <span class="admin-stat-label">Gallery Photos</span>
+          <strong id="overview-photos" class="admin-stat-value">0</strong>
+          <p class="small-note">Images currently available across all galleries.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section" id="site-settings">
+      <h2>Business Information</h2>
+      <form id="business-info-form" class="admin-form-grid">
+        <label for="aboutText">About Business</label>
+        <textarea id="aboutText" rows="3" required></textarea>
+
+        <label for="welcomeText">Welcome Paragraph</label>
+        <textarea id="welcomeText" rows="3" required></textarea>
+
+        <label for="phone">Phone</label>
+        <input id="phone" type="text" required>
+
+        <label for="whatsapp">Admin WhatsApp Number</label>
+        <input id="whatsapp" type="text" required>
+
+        <label for="address">Address</label>
+        <input id="address" type="text" required>
+
+        <label for="email">Email</label>
+        <input id="email" type="email" required>
+
+        <label for="instagram">Instagram Link</label>
+        <input id="instagram" type="url" required>
+
+        <label for="facebook">Facebook Link</label>
+        <input id="facebook" type="url" required>
+
+        <button type="submit" class="btn-primary">Save Business Info</button>
+      </form>
+      <p class="message-text" id="business-info-message"></p>
+    </section>
+
+    <section class="content-section">
+      <h2>Service Descriptions</h2>
+      <form id="service-desc-form" class="admin-form-grid">
+        <label for="descAgriculture">Agriculture Machines</label>
+        <textarea id="descAgriculture" rows="3" required></textarea>
+
+        <label for="descDoors">Main Doors</label>
+        <textarea id="descDoors" rows="3" required></textarea>
+
+        <label for="descChogaths">Chogaths</label>
+        <textarea id="descChogaths" rows="3" required></textarea>
+
+        <button type="submit" class="btn-primary">Save Service Descriptions</button>
+      </form>
+      <p class="message-text" id="service-desc-message"></p>
+    </section>
+
+    <section class="content-section">
+      <h2>Service Visibility Controls</h2>
+      <p class="small-note">Toggle services on or off to control what customers see on the website.</p>
+      <div class="service-toggle-control">
+        <label for="toggle-agriculture" style="flex: 1; margin: 0;">Agriculture Machines</label>
+        <button type="button" class="toggle-switch active" id="toggle-agriculture" data-service="agriculture"></button>
+      </div>
+      <div class="service-toggle-control">
+        <label for="toggle-doors" style="flex: 1; margin: 0;">Main Doors</label>
+        <button type="button" class="toggle-switch active" id="toggle-doors" data-service="doors"></button>
+      </div>
+      <div class="service-toggle-control">
+        <label for="toggle-chogaths" style="flex: 1; margin: 0;">Chogaths</label>
+        <button type="button" class="toggle-switch active" id="toggle-chogaths" data-service="chogaths"></button>
+      </div>
+      <button type="button" class="btn-primary" id="save-service-toggles">Save Service Settings</button>
+      <p class="message-text" id="service-toggle-message"></p>
+    </section>
+
+    <section class="content-section" id="media-library">
+      <h2>Founders Photos Upload</h2>
+      <input id="adminPhotosInput" type="file" accept="image/*" multiple>
+      <div id="adminPhotosManage" class="photo-grid two-col manage"></div>
+    </section>
+
+    <section class="content-section">
+      <h2>Agriculture Machines Images (Max 6)</h2>
+      <input id="agricultureInput" type="file" accept="image/*" multiple>
+      <div id="agricultureManage" class="photo-grid three-col manage"></div>
+    </section>
+
+    <section class="content-section">
+      <h2>Main Doors Images (Max 6)</h2>
+      <input id="doorsInput" type="file" accept="image/*" multiple>
+      <div id="doorsManage" class="photo-grid three-col manage"></div>
+    </section>
+
+    <section class="content-section">
+      <h2>Chogaths Images (Max 4)</h2>
+      <input id="chogathsInput" type="file" accept="image/*" multiple>
+      <div id="chogathsManage" class="photo-grid two-col manage"></div>
+    </section>
+
+    <section class="content-section" id="customer-enquiries">
+      <div class="section-head">
+        <div>
+          <h2>Customer Enquiries</h2>
+          <p class="small-note">Latest leads submitted from the contact page.</p>
+        </div>
+        <div class="toolbar-actions">
+          <input id="enquiry-search" type="text" placeholder="Search by name, phone, email">
+          <select id="enquiry-service-filter">
+            <option value="">All services</option>
+            <option value="Agriculture Machines">Agriculture Machines</option>
+            <option value="Main Doors">Main Doors</option>
+            <option value="Chogaths">Chogaths</option>
+            <option value="Other">Other</option>
+          </select>
+          <button id="refresh-enquiries-btn" type="button" class="btn-secondary">Refresh</button>
+        </div>
+      </div>
+      <div id="enquiriesList" class="enquiry-list"></div>
+    </section>
+
+    <section class="content-section" id="custom-orders">
+      <div class="section-head">
+        <div>
+          <h2>Custom Orders</h2>
+          <p class="small-note">Orders sent from the services customize forms.</p>
+        </div>
+        <div class="toolbar-actions">
+          <input id="order-search" type="text" placeholder="Search by customer, phone">
+          <select id="order-service-filter">
+            <option value="">All services</option>
+            <option value="agriculture">Agricultural Machine</option>
+            <option value="doors">Main Door</option>
+            <option value="chogaths">Chogath</option>
+          </select>
+          <button id="refresh-orders-btn" type="button" class="btn-secondary">Refresh</button>
+        </div>
+      </div>
+      <div id="ordersList" class="enquiry-list"></div>
+    </section>
+  </main>
+
+  <script src="./js/script.js"></script>
+</body>
+</html>

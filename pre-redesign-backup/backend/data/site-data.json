@@ -1,0 +1,68 @@
+{
+  "business": {
+    "aboutText": "Momi Repairing Works offers dependable repairing and fabrication work for agriculture machines, main doors and chogaths.",
+    "welcomeText": "We provide high quality repairing and manufacturing services for agriculture machines, main doors and chogaths. Our goal is to deliver strong, durable and reliable work with customer satisfaction.",
+    "phone": "+91 8385822965",
+    "whatsapp": "+91 8890016089",
+    "address": "MOMI Repairing Works , Karanpur Road , Gajsinghpur, Sri Ganganagar ,Rajasthan",
+    "email": "momiworks@example.com",
+    "instagram": "https://www.instagram.com/ranneetsingh88900/",
+    "facebook": "https://www.instagram.com/ranneetsingh88900/"
+  },
+  "services": {
+    "agriculture": "Repairing, welding and maintenance support for agriculture machines that need strong and long-lasting performance.",
+    "doors": "Custom-built and repaired main doors made with durable materials, solid fitting and a neat finish.",
+    "chogaths": "Strong, custom-sized chogaths created for long life, reliable support and clean installation."
+  },
+  "galleries": {
+    "admin": [
+      {
+        "id": "066bc599333344768298da3f0e17bea7",
+        "filename": "ChatGPT Image Mar 15, 2026, 02_04_23 PM.webp",
+        "url": "/uploads/admin/a5436b25b3bd4ae6b9dc63d935ec9dd2.webp",
+        "uploadedAt": "2026-03-22T05:26:46.153127+00:00"
+      }
+    ],
+    "agriculture": [
+      {
+        "id": "ec2b59d501e2494ea293c473ee990060",
+        "filename": "ChatGPT Image Mar 15, 2026, 12_10_18 PM.webp",
+        "url": "/uploads/agriculture/3ecf9beaa3934e4c9a26ae4656397631.webp",
+        "uploadedAt": "2026-03-15T08:07:06.689492+00:00"
+      },
+      {
+        "id": "24aa285a25f64053a149e22442ee5f64",
+        "filename": "ChatGPT Image Mar 15, 2026, 12_15_45 PM.webp",
+        "url": "/uploads/agriculture/3b65091429be456bbeacf50b2a9e3f19.webp",
+        "uploadedAt": "2026-03-15T08:07:06.700550+00:00"
+      },
+      {
+        "id": "9179731f96564b84a9104f273f236f97",
+        "filename": "download.webp",
+        "url": "/uploads/agriculture/928f559e087a46dab1c5a4c21519ae3e.webp",
+        "uploadedAt": "2026-03-15T08:07:06.701929+00:00"
+      },
+      {
+        "id": "4d4538473a0c46cb96c5af3295c0fc4a",
+        "filename": "tractor-agriculture-plough-500x500.webp",
+        "url": "/uploads/agriculture/fe194725e10742e5bea19d965850af82.webp",
+        "uploadedAt": "2026-03-15T08:07:21.912893+00:00"
+      }
+    ],
+    "doors": [
+      {
+        "id": "22dabf80fb9f481cbbbecf1412bca402",
+        "filename": "ChatGPT Image Mar 15, 2026, 12_02_13 PM.webp",
+        "url": "/uploads/doors/ddf49d8981924312ab572c6b897a684b.webp",
+        "uploadedAt": "2026-03-15T08:07:34.522389+00:00"
+      },
+      {
+        "id": "b37d23d6343a4c2eb9c782648c9542e2",
+        "filename": "ChatGPT Image Mar 15, 2026, 12_06_56 PM.webp",
+        "url": "/uploads/doors/f136a7b4220646a2b621ce1ec4700f1d.webp",
+        "uploadedAt": "2026-03-15T08:07:34.532060+00:00"
+      }
+    ],
+    "chogaths": []
+  }
+}

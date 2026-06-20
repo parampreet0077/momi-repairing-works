@@ -1,0 +1,32 @@
+{
+  "business": {
+    "aboutText": "Momi Repairing Works offers dependable repairing and fabrication work for agriculture machines, main doors and chogaths.",
+    "welcomeText": "We provide high quality repairing and manufacturing services for agriculture machines, main doors and chogaths. Our goal is to deliver strong, durable and reliable work with customer satisfaction.",
+    "phone": "+91 98765 43210",
+    "whatsapp": "+91 98765 43210",
+    "address": "Your workshop address, city, state",
+    "email": "momiworks@example.com",
+    "instagram": "https://www.instagram.com/",
+    "facebook": "https://www.facebook.com/"
+  },
+  "services": {
+    "agriculture": {
+      "description": "Repairing, welding and maintenance support for agriculture machines that need strong and long-lasting performance.",
+      "enabled": true
+    },
+    "doors": {
+      "description": "Custom-built and repaired main doors made with durable materials, solid fitting and a neat finish.",
+      "enabled": true
+    },
+    "chogaths": {
+      "description": "Strong, custom-sized chogaths created for long life, reliable support and clean installation.",
+      "enabled": true
+    }
+  },
+  "galleries": {
+    "admin": [],
+    "agriculture": [],
+    "doors": [],
+    "chogaths": []
+  }
+}
