@@ -1,4 +1,10 @@
-const API_BASE_URL = "https://momi-repairing-works.onrender.com";
+const API_BASE_URL =
+  window.location.hostname === "localhost" ||
+  window.location.hostname === "127.0.0.1" ||
+  window.location.protocol === "file:"
+    ? "http://127.0.0.1:5000"
+    : "https://momi-repairing-works.onrender.com";
+
 
 const api = {
   publicData: `${API_BASE_URL}/api/public/site-data`,

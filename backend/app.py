@@ -87,7 +87,16 @@ file_lock = threading.Lock()
 app = Flask(__name__)
 
 FRONTEND_URL = os.environ.get("MRW_FRONTEND_URL", "http://localhost:5500")
-CORS(app, supports_credentials=True, origins=FRONTEND_URL)
+allowed_origins = [
+    FRONTEND_URL,
+    r"http://localhost:\d+",
+    r"http://127\.0\.0\.1:\d+",
+    "http://localhost",
+    "http://127.0.0.1",
+    "null",
+]
+CORS(app, supports_credentials=True, origins=allowed_origins)
+
 
 
 # ─── Startup ──────────────────────────────────────────────────────────────────
