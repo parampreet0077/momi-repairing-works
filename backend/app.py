@@ -74,7 +74,7 @@ DEFAULT_SITE_DATA = {
 
 DEFAULT_USERS_DATA = {
     "username": "ranjeetsingh",
-    "password": "12345",
+    "password": "88900838582",
 }
 
 DEFAULT_ENQUIRIES = []

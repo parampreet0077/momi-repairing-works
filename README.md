@@ -68,7 +68,7 @@ Credentials are stored in `backend/data/users.json`:
 ```json
 {
   "username": "ranjeetsingh",
-  "password": "12345"
+  "password": "88900838582"
 }
 ```
 
