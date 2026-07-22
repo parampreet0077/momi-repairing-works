@@ -74,7 +74,7 @@ DEFAULT_SITE_DATA = {
 
 DEFAULT_USERS_DATA = {
     "username": "ranjeetsingh",
-    "password": "88900838582",
+    "password": "CHANGE_ME",
 }
 
 DEFAULT_ENQUIRIES = []
@@ -161,12 +161,25 @@ def now_iso():
 
 # ─── Auth Helpers ─────────────────────────────────────────────────────────────
 
+def get_admin_credentials():
+    env_user = os.environ.get("MRW_ADMIN_USERNAME")
+    env_pass = os.environ.get("MRW_ADMIN_PASSWORD")
+    if env_user and env_pass:
+        return {"username": env_user.strip(), "password": str(env_pass)}
+
+    users = load_json(USERS_DATA_FILE, DEFAULT_USERS_DATA)
+    return {
+        "username": str(users.get("username", "ranjeetsingh")).strip(),
+        "password": str(users.get("password", "")),
+    }
+
+
 def get_authenticated_username():
     username = request.cookies.get(COOKIE_NAME)
     if not username:
         return None
-    users = load_json(USERS_DATA_FILE, DEFAULT_USERS_DATA)
-    if username == str(users.get("username", "")):
+    creds = get_admin_credentials()
+    if username == creds["username"]:
         return username
     return None
 
@@ -464,12 +477,12 @@ def create_order():
 @app.route("/api/admin/login", methods=["POST"])
 def admin_login():
     payload = get_json_body()
-    users = load_json(USERS_DATA_FILE, DEFAULT_USERS_DATA)
+    creds = get_admin_credentials()
 
     input_username = str(payload.get("username", "")).strip()
     input_password = str(payload.get("password", ""))
-    stored_username = str(users.get("username", ""))
-    stored_password = str(users.get("password", ""))
+    stored_username = creds["username"]
+    stored_password = creds["password"]
 
     if input_username != stored_username or input_password != stored_password:
         return jsonify({"error": "Invalid username or password"}), 401

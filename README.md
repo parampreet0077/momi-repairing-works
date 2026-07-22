@@ -52,6 +52,8 @@ The backend runs on `http://localhost:5000`.
 | Variable           | Purpose                              |
 |--------------------|--------------------------------------|
 | `MRW_FRONTEND_URL` | Allowed CORS origin — **required** (e.g. `https://momi-repairing-works.vercel.app`)|
+| `MRW_ADMIN_USERNAME`| Admin login username (overrides `data/users.json`) |
+| `MRW_ADMIN_PASSWORD`| Admin login password (overrides `data/users.json`) |
 | `MRW_SMTP_HOST`    | SMTP server for email notifications  |
 | `MRW_SMTP_PORT`    | SMTP port                            |
 | `MRW_SMTP_USERNAME`| SMTP username                        |
@@ -63,16 +65,14 @@ The backend runs on `http://localhost:5000`.
 
 ## Admin Login
 
-Credentials are stored in `backend/data/users.json`:
+Set `MRW_ADMIN_USERNAME` and `MRW_ADMIN_PASSWORD` as environment variables on Render (recommended), or edit local `backend/data/users.json` (git-ignored):
 
 ```json
 {
-  "username": "ranjeetsingh",
-  "password": "88900838582"
+  "username": "your_username",
+  "password": "your_password"
 }
 ```
-
-To change credentials, edit this file directly.
 
 ---
 

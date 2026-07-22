@@ -4,3 +4,7 @@ __pycache__/
 .env
 .venv/
 venv/
+
+# Sensitive local data
+data/users.json
+
