@@ -16,3 +16,5 @@ Thumbs.db
 # Credentials
 backend/data/users.json
 
+# Local backups
+pre-redesign-backup/
