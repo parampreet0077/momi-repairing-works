@@ -84,13 +84,13 @@ Open `frontend/index.html` directly in your browser, **or** serve with any stati
 npx serve frontend
 ```
 
-For development with the local backend, set `BASE_URL` in `frontend/js/script.js`:
+For development with the local backend, `frontend/js/script.js` already auto-detects `localhost` and uses:
 
 ```js
-const BASE_URL = "http://localhost:5000";
+const API_BASE_URL = "http://127.0.0.1:5000";
 ```
 
-For production, leave `BASE_URL = ""` if using a reverse proxy, or set it to the Render backend URL.
+For production, the frontend automatically uses the deployed Render backend URL.
 
 ---
 
@@ -104,5 +104,5 @@ For production, leave `BASE_URL = ""` if using a reverse proxy, or set it to the
 
 ### Frontend → Vercel
 1. Connect `frontend/` folder as the Vercel project root
-2. Set `BASE_URL` in `script.js` to your Render backend URL
+2. Ensure the backend is deployed and `MRW_FRONTEND_URL` is set on Render
 3. Deploy as a static site (no build step needed)
