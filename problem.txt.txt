@@ -1,0 +1,121 @@
+===================================================================
+MOMI REPAIRING WORKS - REVENUE-READY ROADMAP
+Project: momi-repairing-works.vercel.app
+Prepared: July 2026
+===================================================================
+
+Is file me har feature ke aage priority, wajah (kyun zaroori hai)
+aur ek chhota solution hint diya gaya hai. Ek-ek karke top se
+niche solve karte jaana. Jo complete ho jaaye uske aage [DONE] laga
+dena.
+
+-------------------------------------------------------------------
+🔴 HIGH PRIORITY (Security + Core functionality)
+-------------------------------------------------------------------
+
+[ Solved ] 1. Admin credentials hide karo
+    Kyun: Login popup ke andar hardcoded text hai
+          "Demo Credentials: admin / momi123" — sabko visible hai,
+          koi bhi try kar sakta hai.
+    Solution hint:
+      - HTML/JSX me se ye demo-credentials wali line dhundo aur
+        pura remove karo (element inspect karke text search karo:
+        "Demo Credentials").
+      - Password ko code me hardcode mat karo — .env file me
+        rakho (e.g. ADMIN_PASSWORD=xxxx) aur backend se compare
+        karo, frontend me kabhi mat bhejo.
+      - Agar simple static site hai (no backend), to ek basic
+        backend route/serverless function (Vercel API route)
+        banao jo password check kare — client-side JS me password
+        check mat karo, wo har kisi ko dikh jaata hai (view-source).
+
+[ ] 2. Orders database me save ho
+    Kyun: Abhi cart client-side (browser memory/localStorage) me
+          hai — refresh ya tab close hote hi order data gayab.
+    Solution hint:
+      - Free database use karo: Supabase (Postgres) ya Firebase
+        Firestore — dono ka free tier is scale ke liye kaafi hai.
+      - Ek "orders" table/collection banao: fields — customer
+        name, phone, service type, customize details (JSON),
+        status (pending/in-progress/done), created_at.
+      - "Submit Order" button par frontend se database me
+        insert call karo (Supabase JS client ya Firebase SDK se).
+      - Admin panel ko database se orders fetch karke dikhana
+        shuru karo (abhi jo static/demo hai).
+
+[ ] 3. WhatsApp/SMS notification jab naya order aaye
+    Kyun: Tumhe turant pata chalna chahiye ki naya order aaya,
+          customer ko bhi confirmation milna chahiye — trust
+          aur speed dono badhta hai.
+    Solution hint:
+      - MSG91 ya Interakt (WhatsApp Business API) account banao
+        — free/trial credits milte hain shuru me.
+      - Order database me save hone ke baad ek API call karo
+        (serverless function se) jo tumhare number par WhatsApp/
+        SMS bhej de: "Naya order aaya: [customer] - [service]".
+      - Optional: customer ke number par bhi auto-confirmation
+        bhejo "Aapka order mil gaya hai, hum jaldi contact karenge".
+
+-------------------------------------------------------------------
+🟡 MEDIUM PRIORITY (Growth features)
+-------------------------------------------------------------------
+
+[ ] 4. Advance/Booking payment (Razorpay) - optional
+    Kyun: Fixed-price services (jaise chhoti repair) ke liye
+          online advance liya ja sakta hai. Custom fabrication
+          (door/chogath) me price site-visit ke baad hi tay hota
+          hai, to wahan zaroori nahi.
+    Solution hint:
+      - Sirf "Agriculture Machine Repair" jaisi fixed-rate
+        service ke liye Razorpay Payment Button/Checkout jodo
+        (koi backend setup ke bina bhi simple button ban sakta
+        hai Razorpay dashboard se).
+      - Custom fabrication forms (door/chogath) me payment mat
+        jodo abhi — wahan sirf order-request rehne do.
+
+[ ] 5. Order status tracking (customer ko dikhe)
+    Kyun: Customer ko pata chale unka order kis stage me hai —
+          trust aur repeat business badhta hai.
+    Solution hint:
+      - Order ke saath ek unique ID generate karo (database
+        record ka ID hi use kar lo).
+      - Ek simple "Track Order" page banao jaha customer apna
+        phone number ya order ID daale aur status dikhe (database
+        se fetch karke).
+      - Status update sirf admin panel se ho (dropdown: Pending /
+        In Progress / Done).
+
+-------------------------------------------------------------------
+🟢 NICE-TO-HAVE (Polish)
+-------------------------------------------------------------------
+
+[ ] 6. Admin dashboard me orders list + status update
+    Kyun: Abhi admin panel demo/static hai — real orders manage
+          karne ka koi tareeka nahi.
+    Solution hint:
+      - Admin login ke baad ek page banao jo database se saare
+        orders fetch kare aur table me dikhaye (name, service,
+        date, status).
+      - Har row ke aage ek dropdown/button ho jisse status change
+        ho sake (updates database me).
+      - Filter/sort add kar sakte ho baad me (pending orders sabse
+        upar dikhein).
+
+-------------------------------------------------------------------
+SUGGESTED ORDER TO SOLVE
+-------------------------------------------------------------------
+1 -> 2 -> 3 -> 6 -> 5 -> 4
+
+(Pehle security fix karo, phir data properly save/track ho,
+phir notification, phir admin ko usable banao, phir tracking,
+sabse last me payment - agar chahiye to.)
+
+-------------------------------------------------------------------
+NOTES
+-------------------------------------------------------------------
+- Har feature ke liye separate git branch/commit rakhna better
+  rahega taaki rollback easy ho.
+- Free tier (Supabase/Firebase/MSG91 trial) shuru ke liye kaafi
+  hai — paise kharch tab hi karo jab real traffic/orders aane
+  lagein.
+===================================================================

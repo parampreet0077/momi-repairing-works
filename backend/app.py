@@ -1,3 +1,4 @@
+from dotenv import load_dotenv
 import base64
 import json
 import mimetypes
@@ -10,20 +11,26 @@ from email.message import EmailMessage
 from pathlib import Path
 from urllib.parse import quote
 
+from dotenv import load_dotenv
 from flask import Flask, jsonify, make_response, request, send_from_directory
 from flask_cors import CORS
+from supabase import create_client
+
+BASE_DIR = Path(__file__).resolve().parent
+load_dotenv(BASE_DIR / ".env")
+# .....manual add.......
+
 
 
 # ─── Paths ────────────────────────────────────────────────────────────────────
 
-ROOT_DIR = Path(__file__).resolve().parent
+ROOT_DIR = BASE_DIR
 DATA_DIR = ROOT_DIR / "data"
 UPLOADS_DIR = ROOT_DIR / "uploads"
 
 SITE_DATA_FILE = DATA_DIR / "site-data.json"
 USERS_DATA_FILE = DATA_DIR / "users.json"
 ENQUIRIES_DATA_FILE = DATA_DIR / "enquiries.json"
-ORDERS_DATA_FILE = DATA_DIR / "orders.json"
 
 # ─── Config ───────────────────────────────────────────────────────────────────
 
@@ -78,11 +85,12 @@ DEFAULT_USERS_DATA = {
 }
 
 DEFAULT_ENQUIRIES = []
-DEFAULT_ORDERS = []
 
 # ─── App Setup ────────────────────────────────────────────────────────────────
 
 file_lock = threading.Lock()
+
+supabase = None
 
 app = Flask(__name__)
 
@@ -108,7 +116,6 @@ def ensure_project_files():
     write_json_if_missing(SITE_DATA_FILE, DEFAULT_SITE_DATA)
     write_json_if_missing(USERS_DATA_FILE, DEFAULT_USERS_DATA)
     write_json_if_missing(ENQUIRIES_DATA_FILE, DEFAULT_ENQUIRIES)
-    write_json_if_missing(ORDERS_DATA_FILE, DEFAULT_ORDERS)
 
     for category in IMAGE_LIMITS:
         (UPLOADS_DIR / category).mkdir(parents=True, exist_ok=True)
@@ -213,9 +220,114 @@ def load_enquiries():
     return enquiries if isinstance(enquiries, list) else []
 
 
+class OrderStorageError(RuntimeError):
+    """Raised when the Supabase orders store cannot be used."""
+
+
+def get_supabase_client():
+    global supabase
+
+    supabase_url = os.getenv("SUPABASE_URL", "").strip()
+    service_role_key = os.getenv("SUPABASE_SERVICE_ROLE_KEY", "").strip()
+
+    if not supabase_url:
+        print("[ORDER ERROR] Missing env variable: SUPABASE_URL", flush=True)
+        raise OrderStorageError("Missing environment variable: SUPABASE_URL")
+    if not service_role_key:
+        print("[ORDER ERROR] Missing env variable: SUPABASE_SERVICE_ROLE_KEY", flush=True)
+        raise OrderStorageError("Missing environment variable: SUPABASE_SERVICE_ROLE_KEY")
+
+    if supabase is None:
+        try:
+            supabase = create_client(supabase_url, service_role_key)
+            print("[ORDER] Supabase client initialized successfully.", flush=True)
+        except Exception as exc:
+            print(f"[ORDER ERROR] Supabase client init failed: {exc}", flush=True)
+            raise OrderStorageError("Supabase is unavailable") from exc
+    return supabase
+
+
+def order_from_supabase(row):
+    details = row.get("customize_details", {})
+    if isinstance(details, str):
+        try:
+            details = json.loads(details)
+        except json.JSONDecodeError:
+            details = {}
+    if not isinstance(details, dict):
+        details = {}
+
+    details["customerName"] = str(row.get("customer_name", details.get("customerName", "")))
+    details["phone"] = str(row.get("phone", details.get("phone", "")))
+    service = str(row.get("service_type", ""))
+
+    return {
+        "id": str(row.get("id", "")),
+        "service": service,
+        "label": get_service_label(service),
+        "fields": details,
+        "createdAt": row.get("created_at"),
+    }
+
+
 def load_orders():
-    orders = load_json(ORDERS_DATA_FILE, DEFAULT_ORDERS)
-    return orders if isinstance(orders, list) else []
+    try:
+        response = (
+            get_supabase_client()
+            .table("orders")
+            .select("*")
+            .order("created_at", desc=True)
+            .execute()
+        )
+        return [order_from_supabase(row) for row in (response.data or [])]
+    except OrderStorageError:
+        raise
+    except Exception as exc:
+        print(f"[ORDER ERROR] load_orders failed: {type(exc).__name__}: {exc}", flush=True)
+        app.logger.exception("Could not load orders from Supabase")
+        raise OrderStorageError("Could not load orders from Supabase") from exc
+
+
+def create_supabase_order(order):
+    import traceback as _tb
+    fields = order["fields"]
+    record = {
+        "customer_name": fields["customerName"],
+        "phone": fields["phone"],
+        "service_type": order["service"],
+        "customize_details": fields,
+        "status": "pending",
+        "created_at": order["createdAt"],
+    }
+    try:
+        response = get_supabase_client().table("orders").insert(record).execute()
+        rows = response.data or []
+        if not rows:
+            raise OrderStorageError("Supabase did not return the saved order")
+        return order_from_supabase(rows[0])
+    except OrderStorageError:
+        raise
+    except Exception as exc:
+        # Always print the full error so it shows in the terminal log
+        print(f"[ORDER ERROR] create_supabase_order failed: {type(exc).__name__}: {exc}", flush=True)
+        _tb.print_exc()
+        app.logger.exception("Could not create order in Supabase")
+        raise OrderStorageError("Could not create order in Supabase") from exc
+
+
+def delete_supabase_order(order_id):
+    try:
+        client = get_supabase_client()
+        existing = client.table("orders").select("id").eq("id", order_id).limit(1).execute()
+        if not (existing.data or []):
+            return False
+        client.table("orders").delete().eq("id", order_id).execute()
+        return True
+    except OrderStorageError:
+        raise
+    except Exception as exc:
+        app.logger.exception("Could not delete order from Supabase")
+        raise OrderStorageError("Could not delete order from Supabase") from exc
 
 
 # ─── Validators ───────────────────────────────────────────────────────────────
@@ -426,6 +538,7 @@ def create_enquiry():
 
 @app.route("/api/public/orders", methods=["POST"])
 def create_order():
+    import traceback as _tb
     payload = get_json_body()
     service = str(payload.get("service", "")).strip()
     fields = payload.get("fields", {})
@@ -452,10 +565,12 @@ def create_order():
         "createdAt": now_iso(),
     }
 
-    orders = load_orders()
-    orders.insert(0, order)
-    if not save_json(ORDERS_DATA_FILE, orders):
-        return jsonify({"error": "Could not save order"}), 500
+    try:
+        order = create_supabase_order(order)
+    except OrderStorageError as _ose:
+        print(f"[ORDER ERROR] OrderStorageError: {_ose}", flush=True)
+        _tb.print_exc()
+        return jsonify({"error": "Order storage is currently unavailable"}), 503
 
     whatsapp_payload = build_order_whatsapp_payload(order)
     return (
@@ -523,7 +638,10 @@ def admin_dashboard_data():
 
     data = load_site_data()
     data["enquiries"] = load_enquiries()
-    data["orders"] = load_orders()
+    try:
+        data["orders"] = load_orders()
+    except OrderStorageError:
+        return jsonify({"error": "Order storage is currently unavailable"}), 503
     return jsonify(data)
 
 
@@ -540,7 +658,10 @@ def admin_orders():
     _, error_response = require_auth()
     if error_response:
         return error_response
-    return jsonify({"orders": load_orders()})
+    try:
+        return jsonify({"orders": load_orders()})
+    except OrderStorageError:
+        return jsonify({"error": "Order storage is currently unavailable"}), 503
 
 
 @app.route("/api/admin/enquiries/<enquiry_id>", methods=["DELETE"])
@@ -564,13 +685,18 @@ def delete_order(order_id):
     if error_response:
         return error_response
 
-    orders = load_orders()
-    if not any(o.get("id") == order_id for o in orders):
+    try:
+        deleted = delete_supabase_order(order_id)
+    except OrderStorageError:
+        return jsonify({"error": "Order storage is currently unavailable"}), 503
+
+    if not deleted:
         return jsonify({"error": "Order not found"}), 404
 
-    orders = [o for o in orders if o.get("id") != order_id]
-    save_json(ORDERS_DATA_FILE, orders)
-    return jsonify({"message": "Order removed", "orders": orders})
+    try:
+        return jsonify({"message": "Order removed", "orders": load_orders()})
+    except OrderStorageError:
+        return jsonify({"error": "Order removed, but updated orders could not be loaded"}), 503
 
 
 @app.route("/api/admin/business-info", methods=["PUT"])
